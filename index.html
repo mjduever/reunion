@@ -28,7 +28,7 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
-        <script src="data/Reunion3b_1.js"></script>
+        <script src="data/reunion3c_1.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -48,7 +48,7 @@
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:13, minZoom:5
-        }).fitBounds([[27.920545320410024,-117.30289312803292],[47.24954298958999,-77.48292834196698]]);
+        }).fitBounds([[29.49476265635354,-97.80141017027647],[48.8237603255335,-66.57611187377647]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -68,7 +68,7 @@
         });
         layer_OSMStandard_0;
         map.addLayer(layer_OSMStandard_0);
-        function pop_Reunion3b_1(feature, layer) {
+        function pop_reunion3c_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -92,15 +92,22 @@
                         <td colspan="2">' + (feature.properties['Name2'] !== null ? autolinker.link(feature.properties['Name2'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['City'] !== null ? autolinker.link(feature.properties['City'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Town or City</th>\
+                        <td>' + (feature.properties['City'] !== null ? autolinker.link(feature.properties['City'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">State</th>\
+                        <td>' + (feature.properties['State'] !== null ? autolinker.link(feature.properties['State'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Reunion3b_1_0() {
-            return {
-                pane: 'pane_Reunion3b_1',
+        function style_reunion3c_1_0(feature) {
+            switch(String(feature.properties['q2wHide_Attending2'])) {
+                case 'Yes':
+                    return {
+                pane: 'pane_reunion3c_1',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -110,30 +117,82 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(82,242,88,1.0)',
+                fillColor: 'rgba(0,136,55,1.0)',
                 interactive: true,
             }
+                    break;
+                case 'Maybe':
+                    return {
+                pane: 'pane_reunion3c_1',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,219,160,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'No':
+                    return {
+                pane: 'pane_reunion3c_1',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(194,165,207,1.0)',
+                interactive: true,
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_reunion3c_1',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(123,50,148,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
         }
-        map.createPane('pane_Reunion3b_1');
-        map.getPane('pane_Reunion3b_1').style.zIndex = 401;
-        map.getPane('pane_Reunion3b_1').style['mix-blend-mode'] = 'normal';
-        var layer_Reunion3b_1 = new L.geoJson(json_Reunion3b_1, {
+        map.createPane('pane_reunion3c_1');
+        map.getPane('pane_reunion3c_1').style.zIndex = 401;
+        map.getPane('pane_reunion3c_1').style['mix-blend-mode'] = 'normal';
+        var layer_reunion3c_1 = new L.geoJson(json_reunion3c_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Reunion3b_1',
-            layerName: 'layer_Reunion3b_1',
-            pane: 'pane_Reunion3b_1',
-            onEachFeature: pop_Reunion3b_1,
+            dataVar: 'json_reunion3c_1',
+            layerName: 'layer_reunion3c_1',
+            pane: 'pane_reunion3c_1',
+            onEachFeature: pop_reunion3c_1,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Reunion3b_1_0(feature));
+                return L.circleMarker(latlng, style_reunion3c_1_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Reunion3b_1);
-        map.addLayer(layer_Reunion3b_1);
+        bounds_group.addLayer(layer_reunion3c_1);
+        map.addLayer(layer_reunion3c_1);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'reunion3c<br /><table><tr><td style="text-align: center;"><img src="legend/reunion3c_1_Yes0.png" /></td><td>Yes</td></tr><tr><td style="text-align: center;"><img src="legend/reunion3c_1_Maybe1.png" /></td><td>Maybe</td></tr><tr><td style="text-align: center;"><img src="legend/reunion3c_1_No2.png" /></td><td>No</td></tr><tr><td style="text-align: center;"><img src="legend/reunion3c_1_NA3.png" /></td><td>NA</td></tr></table>': layer_reunion3c_1,"OSM Standard": layer_OSMStandard_0,},{collapsed:false}).addTo(map);
         setBounds();
         </script>
     </body>
