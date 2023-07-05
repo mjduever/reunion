@@ -47,27 +47,27 @@
             highlightLayer.openPopup();
         }
         var map = L.map('map', {
-            zoomControl:true, maxZoom:13, minZoom:5
-        }).fitBounds([[29.49476265635354,-97.80141017027647],[48.8237603255335,-66.57611187377647]]);
+            zoomControl:true, maxZoom:10, minZoom:5
+        }).fitBounds([[37.866043194891,-91.43109966469154],[47.53054202948102,-75.81845051644149]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
-        map.createPane('pane_OSMStandard_0');
-        map.getPane('pane_OSMStandard_0').style.zIndex = 400;
-        var layer_OSMStandard_0 = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            pane: 'pane_OSMStandard_0',
+        map.createPane('pane_Positronretina_0');
+        map.getPane('pane_Positronretina_0').style.zIndex = 400;
+        var layer_Positronretina_0 = L.tileLayer('http://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png', {
+            pane: 'pane_Positronretina_0',
             opacity: 1.0,
-            attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
+            attribution: '<a href="https://cartodb.com/basemaps/">Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.</a>',
             minZoom: 5,
-            maxZoom: 13,
+            maxZoom: 10,
             minNativeZoom: 0,
-            maxNativeZoom: 19
+            maxNativeZoom: 20
         });
-        layer_OSMStandard_0;
-        map.addLayer(layer_OSMStandard_0);
+        layer_Positronretina_0;
+        map.addLayer(layer_Positronretina_0);
         function pop_reunion3c_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -109,15 +109,10 @@
                     return {
                 pane: 'pane_reunion3c_1',
                 radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
+                stroke: false,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(0,136,55,1.0)',
+                fillColor: 'rgba(230,97,1,1.0)',
                 interactive: true,
             }
                     break;
@@ -125,15 +120,10 @@
                     return {
                 pane: 'pane_reunion3c_1',
                 radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
+                stroke: false,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(166,219,160,1.0)',
+                fillColor: 'rgba(253,184,99,1.0)',
                 interactive: true,
             }
                     break;
@@ -141,15 +131,10 @@
                     return {
                 pane: 'pane_reunion3c_1',
                 radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
+                stroke: false,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(194,165,207,1.0)',
+                fillColor: 'rgba(0,127,255,1.0)',
                 interactive: true,
             }
                     break;
@@ -157,15 +142,10 @@
                     return {
                 pane: 'pane_reunion3c_1',
                 radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
+                stroke: false,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(123,50,148,1.0)',
+                fillColor: 'rgba(94,60,153,1.0)',
                 interactive: true,
             }
                     break;
@@ -192,7 +172,7 @@
         bounds_group.addLayer(layer_reunion3c_1);
         map.addLayer(layer_reunion3c_1);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'reunion3c<br /><table><tr><td style="text-align: center;"><img src="legend/reunion3c_1_Yes0.png" /></td><td>Yes</td></tr><tr><td style="text-align: center;"><img src="legend/reunion3c_1_Maybe1.png" /></td><td>Maybe</td></tr><tr><td style="text-align: center;"><img src="legend/reunion3c_1_No2.png" /></td><td>No</td></tr><tr><td style="text-align: center;"><img src="legend/reunion3c_1_NA3.png" /></td><td>NA</td></tr></table>': layer_reunion3c_1,"OSM Standard": layer_OSMStandard_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'reunion3c<br /><table><tr><td style="text-align: center;"><img src="legend/reunion3c_1_Yes0.png" /></td><td>Yes</td></tr><tr><td style="text-align: center;"><img src="legend/reunion3c_1_Maybe1.png" /></td><td>Maybe</td></tr><tr><td style="text-align: center;"><img src="legend/reunion3c_1_No2.png" /></td><td>No</td></tr><tr><td style="text-align: center;"><img src="legend/reunion3c_1_NA3.png" /></td><td>NA</td></tr></table>': layer_reunion3c_1,"Positron (retina)": layer_Positronretina_0,},{collapsed:false}).addTo(map);
         setBounds();
         </script>
     </body>
