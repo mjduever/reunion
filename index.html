@@ -47,7 +47,7 @@
             highlightLayer.openPopup();
         }
         var map = L.map('map', {
-            zoomControl:true, maxZoom:10, minZoom:5
+            zoomControl:true, maxZoom:11, minZoom:5
         }).fitBounds([[37.866043194891,-91.43109966469154],[47.53054202948102,-75.81845051644149]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
@@ -62,7 +62,7 @@
             opacity: 1.0,
             attribution: '<a href="https://cartodb.com/basemaps/">Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.</a>',
             minZoom: 5,
-            maxZoom: 10,
+            maxZoom: 11,
             minNativeZoom: 0,
             maxNativeZoom: 20
         });
@@ -108,7 +108,7 @@
                 case 'Yes':
                     return {
                 pane: 'pane_reunion3c_1',
-                radius: 4.0,
+                radius: 6.000000000000002,
                 stroke: false,
                 fill: true,
                 fillOpacity: 1,
@@ -119,7 +119,7 @@
                 case 'Maybe':
                     return {
                 pane: 'pane_reunion3c_1',
-                radius: 4.0,
+                radius: 6.000000000000002,
                 stroke: false,
                 fill: true,
                 fillOpacity: 1,
@@ -130,7 +130,7 @@
                 case 'No':
                     return {
                 pane: 'pane_reunion3c_1',
-                radius: 4.0,
+                radius: 6.000000000000002,
                 stroke: false,
                 fill: true,
                 fillOpacity: 1,
@@ -141,7 +141,7 @@
                 default:
                     return {
                 pane: 'pane_reunion3c_1',
-                radius: 4.0,
+                radius: 6.000000000000002,
                 stroke: false,
                 fill: true,
                 fillOpacity: 1,
